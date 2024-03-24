@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date And Time</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="mdiv">
+           <h1 class="head">DIGIT CLOCK</h1>
+
+        <div class="sdiv">
+
+            <h1 style="font-size: 50px; color: whitesmoke;font-family: sans-serif;font-weight: lighter;" id="dte">Sunday, April 20, 2023 </h1>
+
+            <h1 id="tm" style="font-size: 100px; color:whitesmoke;font-family: sans-serif;font-weight: lighter;">00:00:00</h1>
+        </div>
+    </div>
+
+    <script>
+        let temp = document.getElementById("dte");
+        let temp2 = document.getElementById("tm");
+       
+        function displayTime(){
+            let date = new Date();
+        let day = date.getDay();
+
+        let dte = date.getDate();
+        let week = ["Sunday", "Monday", "TUesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+        let mth = date.getMonth();
+        let month = ["Jan", "Feb", "March", "April", "May", "june", "jule", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
+        let yr = date.getFullYear();
+
+        let hr = date.getHours();
+        let min = date.getMinutes();
+        let sec = date.getSeconds();
+
+        if (hr < 10) {
+            hr = "0" + hr;
+        }
+
+        if (min < 10) {
+            min = "0" + min;
+        }
+        if (sec < 10) {
+            sec = "0" + sec;
+        }
+
+        temp.innerHTML = `${week[day]},  ${month[mth]} ${dte}, ${yr}`;
+        temp2.innerHTML = `${hr}:${min}:${sec}`;
+
+        }
+        setInterval(displayTime, 1000);
+    </script>
+</body>
+
+</html>
